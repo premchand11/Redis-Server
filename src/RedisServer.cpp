@@ -49,6 +49,9 @@ void RedisServer::run() {
             return;
         }
         std::cout << "Server is running on port " << port << std::endl;
+        
+
+
 
     }
 }
