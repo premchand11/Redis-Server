@@ -1,22 +1,17 @@
 #include "../include/RedisServer.h"
-#include<iostream>
-#include<thread>
+#include "../include/RedisDatabase.h"
+#include <iostream>
 
 int main(int argc, char* argv[]) {
-    int port=6379;
-    if(argc>=2)port=std::stoi(argv[1]);
+    int port = 6379; // Default port
+    if (argc >= 2) port = std::stoi(argv[1]);
+
+    if (RedisDatabase::getInstance().load("dump.my_rdb"))
+        std::cout << "Database Loaded From dump.my_rdb\n";
+    else
+        std::cout << "No dump found or load failed; starting with an empty database.\n";
 
     RedisServer server(port);
-
-    //background persistance: dump database  every 360 seconds
-    std::thread persistanceThread([]() {
-        while (true) {
-            std::this_thread::sleep_for(std::chrono::seconds(360));
-        }
-    });
-    persistanceThread.detach();
-
-
     server.run();
     return 0;
 }
