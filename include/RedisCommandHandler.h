@@ -4,10 +4,11 @@
 #include <string>
 
 class RedisCommandHandler {
-    public:
-        RedisCommandHandler();
-        std::string handleCommand(const std::string& command);
-
+public:
+    RedisCommandHandler();
+    // Process a command from a client and return a RESP-formatted response.
+    std::string processCommand(const std::string& commandLine);
+    std::string handleCommand(const std::string& commandLine);
 };
 
 #endif

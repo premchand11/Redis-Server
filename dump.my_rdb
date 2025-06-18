@@ -1,0 +1,10 @@
+K city Mumbai
+K temperature 32C
+L tasks pay_electricity_bill call_dad finish_assignment
+L shopping_list bread eggs milk cheese
+K user Prem
+K status active
+L colors saffron white green
+L numbers one two three four five
+H product:501 name:mobile  price:15999  brand:samsung
+H product:602 name:laptop  price:49999  brand:mi
